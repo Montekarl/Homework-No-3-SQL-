@@ -49,5 +49,5 @@ FROM
     books
 LEFT JOIN AUTHORS ON books.fk_author = AUTHORS.id
 GROUP BY
-    first_name;
+    fk_author
 ===============================
