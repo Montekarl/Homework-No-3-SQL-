@@ -1,43 +1,34 @@
-CREATE DATABASE ibdb
-CHARACTER SET utf8
-COLLATE utf8_general_ci;
-
-CREATE TABLE `ibdb`.`authors`(
+CREATE DATABASE ibdb CHARACTER SET utf8 COLLATE utf8_general_ci; CREATE TABLE `ibdb`.`authors`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `first_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL ,
+    `first_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     `last_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     `age` DATE NOT NULL,
     `nationality` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     PRIMARY KEY(`id`),
-UNIQUE KEY uix_authors (first_name, last_name, age, nationality)    
-) ENGINE = INNODB;
-
-CREATE TABLE `ibdb`.`series`(
+    UNIQUE KEY uix_authors(
+        first_name,
+        last_name,
+        age,
+        nationality
+    )
+) ENGINE = INNODB; CREATE TABLE `ibdb`.`series`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `series` VARCHAR(510) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     PRIMARY KEY(`id`)
-) ENGINE = INNODB;
-
-CREATE TABLE `ibdb`.`books`(
+) ENGINE = INNODB; CREATE TABLE `ibdb`.`books`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(510) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     `description` VARCHAR(2550) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     `publication_date` YEAR NOT NULL,
-    `fk_author` INT NOT NULL, 
-    `fk_series` INT NULL, 
+    `fk_author` INT NOT NULL,
+    `fk_series` INT NULL,
     PRIMARY KEY(`id`),
-UNIQUE KEY uix_books (title, fk_author),
-INDEX (fk_author),
-FOREIGN KEY (fk_author)
-REFERENCES authors
-(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
-INDEX (fk_series),
-FOREIGN KEY (fk_series)
-REFERENCES series
-(id) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = INNODB;
-
-INSERT INTO `ibdb`.`authors`(
+    UNIQUE KEY uix_books(title, fk_author),
+    INDEX(fk_author),
+    FOREIGN KEY(fk_author) REFERENCES AUTHORS(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
+    INDEX(fk_series),
+    FOREIGN KEY(fk_series) REFERENCES series(id) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE = INNODB; INSERT INTO `ibdb`.`authors`(
     `id`,
     `first_name`,
     `last_name`,
@@ -63,17 +54,8 @@ VALUES(
     '1965-07-31',
     'British'
 );
-INSERT INTO `ibdb`.`series`(
-    `id`,
-    `series`
-)
-VALUES(
-    NULL,
-    'The Witcher'
-),(
-    NULL,
-    'Harry Potter'
-);
+INSERT INTO `ibdb`.`series`(`id`, `series`)
+VALUES(NULL, 'The Witcher'),(NULL, 'Harry Potter');
 INSERT INTO `ibdb`.`books`(
     `id`,
     `title`,
@@ -81,110 +63,124 @@ INSERT INTO `ibdb`.`books`(
     `publication_date`,
     `fk_author`,
     `fk_series`
-	
 )
 VALUES(
     NULL,
     'The Last Wish',
     'The first (in its fictional chronology; published second in original Polish) of the two collections of short stories (the other being Sword of Destiny) preceding the main Witcher Saga, written by Polish fantasy writer Andrzej Sapkowski. The first Polish edition was published in 1993[1] and the first English edition was first published in 2007. The book has also been translated into several other languages.',
     '1992',
-    1, 1
+    1,
+    1
 ),(
     NULL,
     ' Sword of Destiny ',
     ' The second (in its fictional chronology; first in Polish print) of the two collections of short stories (the other being The Last Wish), both preceding the main Witcher Saga. The stories were written by Polish fantasy writer Andrzej Sapkowski. The first Polish edition was published in 1992; the English edition was published in the UK by Gollancz in 2015. ',
     '1993',
-     1, 1
+    1,
+    1
 ),(
     NULL,
     'Blood of Elves',
     'The first novel in the Witcher Saga written by the Polish fantasy writer Andrzej Sapkowski, first published in Poland in 1994. It is a sequel to the Witcher short stories collected in the books The Last Wish (Ostatnie życzenie) and Sword of Destiny (Miecz przeznaczenia) and is followed by Time of Contempt (Czas pogardy). The book won the Janusz A. Zajdel Award and David Gemmell Legend Award awards. An English translation was published in the United Kingdom in 2008 (Gollancz) and in the United States in 2009 (Orbit). ',
     '1994',
-    1,1
+    1,
+    1
 ),(
     NULL,
     'Time of Contempt',
     ' The second novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published 1995 in Polish, and 2013 in English. It is a sequel to the first Witcher novel Blood of Elves (Krew elfów) and is followed by Baptism of Fire (Chrzest ognia). ',
     '1995',
-    1,1
+    1,
+    1
 ),(
     NULL,
     'Baptism of Fire',
     ' The third novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published in 1996 in Polish and in English in 2014. It is a sequel to the second Witcher novel Time of Contempt (Czas pogardy) and is followed by The Tower of Swallows (Wieża Jaskółki). ',
     '1996',
-    1,1
+    1,
+    1
 ),(
     NULL,
     'The Tower of Swallows',
     'The fourth novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published in Poland in 1997. It is a sequel to the third Witcher novel Baptism of Fire (Chrzest ognia) and is followed by the final entry in the series, The Lady of the Lake (Pani Jeziora). ',
     '1997',
-    1,1
+    1,
+    1
 ),(
     NULL,
     'Lady of The Lake',
     ' The fifth novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published in Poland in 1999. It is a sequel to the fourth Witcher novel, The Swallows Tower (Wieża Jaskółki). ',
     '1999',
-    1,1
-
+    1,
+    1
 ),(
     NULL,
     'The Philosophers Stone',
     'Harry Potter and the Philosopher''s Stone is a fantasy novel written by British author J. K. Rowling. The first novel in the Harry Potter series and Rowling''s debut novel, it follows Harry Potter, a young wizard who discovers his magical heritage on his eleventh birthday, when he receives a letter of acceptance to Hogwarts School of Witchcraft and Wizardry. Harry makes close friends and a few enemies during his first year at the school, and with the help of his friends, Harry faces an attempted comeback by the dark wizard Lord Voldemort, who killed Harry''s parents, but failed to kill Harry when he was just 15 months old.',
     '1997',
-    3,2
+    3,
+    2
 ),(
     NULL,
     'The Chamber of Secrets',
     'Harry Potter and the Chamber of Secrets is a fantasy novel written by British author J. K. Rowling and the second novel in the Harry Potter series. The plot follows Harry''s second year at Hogwarts School of Witchcraft and Wizardry, during which a series of messages on the walls of the school''s corridors warn that the "Chamber of Secrets" has been opened and that the ''heir of Slytherin'' would kill all pupils who do not come from all-magical families. These threats are found after attacks which leave residents of the school petrified. Throughout the year, Harry and his friends Ron and Hermione investigate the attacks.',
     '1998',
-    3,2
+    3,
+    2
 ),(
     NULL,
     'The Prisoner of Azkaban',
     'Harry Potter and the Prisoner of Azkaban is a fantasy novel written by British author J. K. Rowling and the third in the Harry Potter series. The book follows Harry Potter, a young wizard, in his third year at Hogwarts School of Witchcraft and Wizardry. Along with friends Ronald Weasley and Hermione Granger, Harry investigates Sirius Black, an escaped prisoner from Azkaban who they believe is one of Lord Voldemort''s old allies.',
     '1999',
-    3,2
+    3,
+    2
 ),(
     NULL,
     'The Goblet of Fire',
     'Harry Potter and the Goblet of Fire is a fantasy book written by British author J. K. Rowling and the fourth novel in the Harry Potter series. It follows Harry Potter, a wizard in his fourth year at Hogwarts School of Witchcraft and Wizardry and the mystery surrounding the entry of Harrys name into the Triwizard Tournament, in which he is forced to compete. ',
     '2000',
-    3,2
+    3,
+    2
 ),(
     NULL,
     'The Order of the Phoenix',
     'Harry Potter and the Order of the Phoenix is a fantasy novel written by British author J. K. Rowling and the fifth novel in the Harry Potter series. It follows Harry Potters struggles through his fifth year at Hogwarts School of Witchcraft and Wizardry, including the surreptitious return of the antagonist Lord Voldemort, O.W.L. exams, and an obstructive Ministry of Magic. The novel was published on 21 June 2003 by Bloomsbury in the United Kingdom, Scholastic in the United States, and Raincoast in Canada. Five million copies were sold in the first 24 hours of publication.[1] It is the longest book of the series. ',
     '2003',
-    3,2
+    3,
+    2
 ),(
     NULL,
     'The Half-Blood Prince',
     ' Harry Potter and the Half-Blood Prince is a fantasy novel written by British author J. K. Rowling and the sixth and penultimate novel in the Harry Potter series. Set during protagonist Harry Potters sixth year at Hogwarts, the novel explores the past of Harrys nemesis, Lord Voldemort, and Harrys preparations for the final battle against Voldemort alongside his headmaster and mentor Albus Dumbledore.',
     '2005',
-    3,2
+    3,
+    2
 ),(
     NULL,
     'The Deathly Hallows',
     'Harry Potter and the Deathly Hallows is a fantasy novel written by British author J. K. Rowling and the seventh and final novel of the Harry Potter series. The book was released on 21 July 2007, ending the series that began in 1997 with the publication of Harry Potter and the Philosophers Stone. It was published in the United Kingdom by Bloomsbury Publishing, in the United States by Scholastic, and in Canada by Raincoast Books. The novel chronicles the events directly following Harry Potter and the Half-Blood Prince (2005) and the final confrontation between the wizards Harry Potter and Lord Voldemort.',
     '2007',
-    3,2
+    3,
+    2
 ),(
     NULL,
     'The Egyptian',
     'The Novel is known for its high-level historical accuracy of the life and culture of Ancient Egypt during the reign of Akhenaten',
     '1945',
-    2,NULL
-
+    2,
+    NULL
 ),(
     NULL,
     'The Dark Angel',
     'Novel about a hopeless love affair and the Fall of Constantinopole',
     '1952',
-    2,NULL
+    2,
+    NULL
 ),(
     NULL,
     'The Wanderer',
     'Novel which tells of the adventures of a young Finnish man, Mikael Karvajalka, in 16th century Europe',
     '1949',
-    2,NULL
+    2,
+    NULL
 );
