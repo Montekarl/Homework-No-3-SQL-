@@ -1,4 +1,6 @@
-CREATE DATABASE ibdb CHARACTER SET utf8 COLLATE utf8_general_ci; CREATE TABLE `ibdb`.`authors`(
+CREATE DATABASE ibdb CHARACTER SET utf8 COLLATE utf8_general_ci; 
+
+CREATE TABLE `ibdb`.`authors`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `first_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     `last_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -11,11 +13,15 @@ CREATE DATABASE ibdb CHARACTER SET utf8 COLLATE utf8_general_ci; CREATE TABLE `i
         age,
         nationality
     )
-) ENGINE = INNODB; CREATE TABLE `ibdb`.`series`(
+) ENGINE = INNODB; 
+
+CREATE TABLE `ibdb`.`series`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `series` VARCHAR(510) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     PRIMARY KEY(`id`)
-) ENGINE = INNODB; CREATE TABLE `ibdb`.`books`(
+) ENGINE = INNODB; 
+
+CREATE TABLE `ibdb`.`books`(
     `id` INT NOT NULL AUTO_INCREMENT,
     `title` VARCHAR(510) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
     `description` VARCHAR(2550) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
@@ -28,43 +34,24 @@ CREATE DATABASE ibdb CHARACTER SET utf8 COLLATE utf8_general_ci; CREATE TABLE `i
     FOREIGN KEY(fk_author) REFERENCES AUTHORS(id) ON DELETE NO ACTION ON UPDATE NO ACTION,
     INDEX(fk_series),
     FOREIGN KEY(fk_series) REFERENCES series(id) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE = INNODB; INSERT INTO `ibdb`.`authors`(
-    `id`,
-    `first_name`,
-    `last_name`,
-    `age`,
-    `nationality`
-)
-VALUES(
-    NULL,
-    'Andrzej',
-    'Sapkowski',
-    '1948-06-21',
-    'Polish '
-),(
-    NULL,
-    'Mika',
-    'Waltari',
-    '1908-09-19',
-    'Finnish'
-),(
-    NULL,
-    'Joanne',
-    'Rowling',
-    '1965-07-31',
-    'British'
-);
+) ENGINE = INNODB; 
+
+INSERT 
+INTO `ibdb`.`authors`
+(`id`,`first_name`,`last_name`,`age`,`nationality`)
+VALUES(NULL,'Andrzej','Sapkowski','1948-06-21','Polish '),
+(NULL,'Mika','Waltari','1908-09-19','Finnish'),
+(NULL, 'Joanne','Rowling','1965-07-31','British');
+
 INSERT INTO `ibdb`.`series`(`id`, `series`)
-VALUES(NULL, 'The Witcher'),(NULL, 'Harry Potter');
-INSERT INTO `ibdb`.`books`(
-    `id`,
-    `title`,
-    `description`,
-    `publication_date`,
-    `fk_author`,
-    `fk_series`
-)
-VALUES(
+VALUES
+(NULL, 'The Witcher'),
+(NULL, 'Harry Potter');
+
+
+INSERT INTO `ibdb`.`books`(`id`,`title`,`description`,`publication_date`,`fk_author`,`fk_series`)
+VALUES
+(
     NULL,
     'The Last Wish',
     'The first (in its fictional chronology; published second in original Polish) of the two collections of short stories (the other being Sword of Destiny) preceding the main Witcher Saga, written by Polish fantasy writer Andrzej Sapkowski. The first Polish edition was published in 1993[1] and the first English edition was first published in 2007. The book has also been translated into several other languages.',
