@@ -2,10 +2,10 @@ CREATE DATABASE ibdb CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 CREATE TABLE `ibdb`.`authors`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `first_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-    `last_name` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `first_name` VARCHAR(255) NOT NULL,
+    `last_name` VARCHAR(255) NOT NULL,
     `age` DATE NOT NULL,
-    `nationality` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `nationality` VARCHAR(255) NOT NULL,
     PRIMARY KEY(`id`),
     UNIQUE KEY uix_authors(
         first_name,
@@ -17,14 +17,14 @@ CREATE TABLE `ibdb`.`authors`(
 
 CREATE TABLE `ibdb`.`series`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `series` VARCHAR(510) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `series` VARCHAR(510) NOT NULL,
     PRIMARY KEY(`id`)
 ) ENGINE = INNODB; 
 
 CREATE TABLE `ibdb`.`books`(
     `id` INT NOT NULL AUTO_INCREMENT,
-    `title` VARCHAR(510) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-    `description` VARCHAR(2550) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+    `title` VARCHAR(510) NOT NULL,
+    `description` VARCHAR(2550) NOT NULL,
     `publication_date` YEAR NOT NULL,
     `fk_author` INT NOT NULL,
     `fk_series` INT NULL,
