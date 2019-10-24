@@ -8,7 +8,7 @@ FROM
     books
 ORDER BY
     publication_date
-DESC
+DESC;
 ===============================
 
 2. Get the oldest book from every author
@@ -25,7 +25,7 @@ GROUP BY
     fk_author
 ORDER BY
     publication_date ASC
-LIMIT 3
+LIMIT 3;
 ===============================
 
 3. Get all books that have a book series
@@ -37,7 +37,7 @@ FROM
     books
 LEFT JOIN series ON books.fk_series = series.id
 WHERE
-    series IS NOT NULL
+    series IS NOT NULL;
 ===============================
 
 4. Get every author's book count
@@ -50,7 +50,26 @@ FROM
     books
 LEFT JOIN authors ON books.fk_author = authors.id
 GROUP BY
-    fk_author
+    fk_author;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Pritaikyta MARIA DB
