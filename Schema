@@ -62,7 +62,7 @@ VALUES
 ),(
     NULL,
     ' Sword of Destiny ',
-    ' The second (in its fictional chronology; first in Polish print) of the two collections of short stories (the other being The Last Wish), both preceding the main Witcher Saga. The stories were written by Polish fantasy writer Andrzej Sapkowski. The first Polish edition was published in 1992; the English edition was published in the UK by Gollancz in 2015. ',
+    'The second (in its fictional chronology; first in Polish print) of the two collections of short stories (the other being The Last Wish), both preceding the main Witcher Saga. The stories were written by Polish fantasy writer Andrzej Sapkowski. The first Polish edition was published in 1992; the English edition was published in the UK by Gollancz in 2015. ',
     '1993',
     1,
     1
@@ -76,14 +76,14 @@ VALUES
 ),(
     NULL,
     'Time of Contempt',
-    ' The second novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published 1995 in Polish, and 2013 in English. It is a sequel to the first Witcher novel Blood of Elves (Krew elfów) and is followed by Baptism of Fire (Chrzest ognia). ',
+    'The second novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published 1995 in Polish, and 2013 in English. It is a sequel to the first Witcher novel Blood of Elves (Krew elfów) and is followed by Baptism of Fire (Chrzest ognia). ',
     '1995',
     1,
     1
 ),(
     NULL,
     'Baptism of Fire',
-    ' The third novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published in 1996 in Polish and in English in 2014. It is a sequel to the second Witcher novel Time of Contempt (Czas pogardy) and is followed by The Tower of Swallows (Wieża Jaskółki). ',
+    'The third novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published in 1996 in Polish and in English in 2014. It is a sequel to the second Witcher novel Time of Contempt (Czas pogardy) and is followed by The Tower of Swallows (Wieża Jaskółki). ',
     '1996',
     1,
     1
@@ -97,7 +97,7 @@ VALUES
 ),(
     NULL,
     'Lady of The Lake',
-    ' The fifth novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published in Poland in 1999. It is a sequel to the fourth Witcher novel, The Swallows Tower (Wieża Jaskółki). ',
+    'The fifth novel in the Witcher Saga written by Polish fantasy writer Andrzej Sapkowski, first published in Poland in 1999. It is a sequel to the fourth Witcher novel, The Swallows Tower (Wieża Jaskółki). ',
     '1999',
     1,
     1
@@ -139,7 +139,7 @@ VALUES
 ),(
     NULL,
     'The Half-Blood Prince',
-    ' Harry Potter and the Half-Blood Prince is a fantasy novel written by British author J. K. Rowling and the sixth and penultimate novel in the Harry Potter series. Set during protagonist Harry Potters sixth year at Hogwarts, the novel explores the past of Harrys nemesis, Lord Voldemort, and Harrys preparations for the final battle against Voldemort alongside his headmaster and mentor Albus Dumbledore.',
+    'Harry Potter and the Half-Blood Prince is a fantasy novel written by British author J. K. Rowling and the sixth and penultimate novel in the Harry Potter series. Set during protagonist Harry Potters sixth year at Hogwarts, the novel explores the past of Harrys nemesis, Lord Voldemort, and Harrys preparations for the final battle against Voldemort alongside his headmaster and mentor Albus Dumbledore.',
     '2005',
     3,
     2
