@@ -1,5 +1,9 @@
 MYSQL 8.0 ================================
 
+CREATE DATABASE ibdb CHARACTER SET utf8 COLLATE utf8_general_ci; 
+
+use ibdb;
+
 CREATE TABLE authors(
     id INT NOT NULL AUTO_INCREMENT,
     first_name VARCHAR(255) NOT NULL,
