@@ -4,7 +4,7 @@ SELECT
     title,
     publication_date
 FROM
-    `books`
+    books
 ORDER BY
     publication_date
 DESC
@@ -19,7 +19,7 @@ DESC
     publication_date
 FROM
     books
-LEFT JOIN AUTHORS ON books.fk_author = AUTHORS.id
+LEFT JOIN AUTHORS ON books.fk_author = authors.id
 GROUP BY
     fk_author
 ORDER BY
@@ -47,7 +47,7 @@ SELECT
     COUNT(books.id) AS Book_Count
 FROM
     books
-LEFT JOIN AUTHORS ON books.fk_author = AUTHORS.id
+LEFT JOIN AUTHORS ON books.fk_author = authors.id
 GROUP BY
     fk_author
 ===============================
