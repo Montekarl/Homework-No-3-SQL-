@@ -25,8 +25,8 @@ LEFT JOIN authors ON books.fk_author = authors.id
 ORDER BY
     publication_date ASC
 LIMIT 3;
-===============================
 
+===============================
 3. Get all books that have a book series
 ===============================
 SELECT
@@ -50,79 +50,4 @@ FROM
 LEFT JOIN authors ON books.fk_author = authors.id
 GROUP BY
     fk_author;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Pritaikyta MARIA DB
-=============================================
-1. Get all books from newest to oldest
-===============================
-SELECT
-    title,
-    publication_date
-FROM
-    books
-ORDER BY
-    publication_date
-DESC
-===============================
-
-2. Get the oldest book from every author
-===============================
- SELECT
-    title,
-    first_name,
-    last_name,
-    publication_date
-FROM
-    books
-LEFT JOIN AUTHORS ON books.fk_author = authors.id
-GROUP BY
-    fk_author
-ORDER BY
-    publication_date ASC
-LIMIT 3
-===============================
-
-3. Get all books that have a book series
-===============================
-SELECT
-    title,
-    series
-FROM
-    books
-LEFT JOIN series ON books.fk_series = series.id
-WHERE
-    series IS NOT NULL
-===============================
-
-4. Get every author's book count
-===============================
-SELECT
-    first_name,
-    last_name,
-    COUNT(books.id) AS Book_Count
-FROM
-    books
-LEFT JOIN AUTHORS ON books.fk_author = authors.id
-GROUP BY
-    fk_author
 ===============================
