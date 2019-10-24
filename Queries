@@ -22,8 +22,6 @@ DESC;
 FROM
     books
 LEFT JOIN authors ON books.fk_author = authors.id
-GROUP BY
-    fk_author
 ORDER BY
     publication_date ASC
 LIMIT 3;
